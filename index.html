@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N-Queens Problem Solver</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+</head>
+<body>
+    <div class="container">
+        <h1>N-Queens Problem Solver</h1>
+        <form id="solveForm">
+            <label for="boardSize">Enter the size of the chessboard (N):</label>
+            <input type="number" id="boardSize" name="N" min="1" required>
+            <button type="submit">Solve</button>
+        </form>
+        <div id="boardContainer" class="board">
+            <div id="solution"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
