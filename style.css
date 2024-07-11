@@ -1,12 +1,13 @@
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #e3f2fd; /* Light blue background */
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
@@ -17,12 +18,18 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content vertically */
+    align-items: center;
 }
 
 h1 {
     text-align: center;
-    color: #333333;
+    color: #1a237e; /* Dark blue color */
+}
+
+.description {
+    text-align: center;
+    color: #3e2723; /* Dark brown color */
+    margin-bottom: 20px;
 }
 
 form {
@@ -33,15 +40,17 @@ form {
 form label {
     display: block;
     margin-bottom: 10px;
+    color: #3949ab; /* Medium blue color */
 }
 
 form input[type="number"] {
     width: 60px;
     padding: 5px;
     font-size: 16px;
-    border: 1px solid #cccccc;
+    border: 1px solid #90caf9; /* Light blue border */
     border-radius: 4px;
     outline: none;
+    margin-bottom: 10px;
 }
 
 form button {
@@ -63,13 +72,14 @@ form button:hover {
     margin-top: 20px;
     padding: 10px;
     background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative; /* Required for ::after pseudo-element */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+    position: relative;
+    border-radius: 10px; /* Rounded corners for the board */
 }
 
 .board-container {
     display: flex;
-    justify-content: center; /* Center content horizontally */
+    justify-content: center;
     position: relative;
 }
 
@@ -81,7 +91,7 @@ form button:hover {
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Green shadow effect */
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
     z-index: -1;
 }
 
@@ -93,17 +103,62 @@ form button:hover {
 .cell {
     width: 40px;
     height: 40px;
-    border: 1px solid #cccccc;
+    border: 1px solid #444444;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
     font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.cell:nth-child(even) {
+    background-color: #bdbdbd; /* Light gray color */
+}
+
+.cell:nth-child(odd) {
+    background-color: #757575; /* Dark gray color */
 }
 
 .cell.queen {
-    color: #ff0000;
+    color: #b71c1c !important; /* Darker red color */
     font-weight: bold;
+    position: relative;
+}
+
+.cell.queen::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#resultMessage {
+    margin-top: 20px;
+    color: #333333;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer p {
+    color: #666666;
+}
+
+footer a {
+    color: #1a237e;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 600px) {
